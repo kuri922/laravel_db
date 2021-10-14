@@ -16,5 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello','PostController@index')->name('hello');
-Route::post('/hello/result','PostController@result')->name('result');
+Route::get('/hello','PostController@index');
+Route::get('/hello/result','PostController@result');
+
+Route::post('hello/result','PostController@store');

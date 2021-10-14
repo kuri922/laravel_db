@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+
+use App\Post;
 use Illuminate\Http\Request;
 use Input;
 
@@ -23,18 +24,17 @@ class PostController extends Controller
         $name = $request->input('name');
         $address = $request->input('address');
         $age = $request->input('age');
-            return view('hello.result', compact('name', 'age','address'));
+            return view('hello.result',compact('name', 'age','address'));
       
      }
- public function store(Request $request){
+    public function store(Request $request){
+        
+         $post = new Post();
+         $post=$request->input('name');
+         $post=$request->input('address');
+         $post=$request->input('age');
+         $post->save();
+         return redirect()->action('postController@result');     
 
-        $post = new Post();
-        $post=$request->input('name');
-        $post=$request->input('address');
-        $post=$request->input('age');
-        $post->save();
-        return redirect()->route('hello.result');
-
-
- }
+    }
 }
