@@ -17,6 +17,6 @@ Route::get('/', function () {
 });
 
 Route::get('/hello','PostController@index');
+Route::post('/hello/result','PostController@result');
 Route::get('/hello/result','PostController@result');
-
-Route::post('hello/result','PostController@store');
+Route::post('hello/result','PostController@store')->name('result');
